@@ -11,16 +11,20 @@ void Player::Movement()
     playercol = {(float)posX, (float)posY + 2, (float)width, (float)height};
     hspeed = H_SPEED;
 
-    if (IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_RIGHT_SHIFT)) //Running
+    if (IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_RIGHT_SHIFT)) // Running
     {
         hspeed = H_SPEED * 2;
-    } else hspeed = H_SPEED;
+    }
+    else
+        hspeed = H_SPEED;
 
-    //Bi-directional controls
-    if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) posX += hspeed; 
-    else if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) posX += -hspeed;
-    
-    //Jumping
+    // Bi-directional controls
+    if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
+        posX += hspeed;
+    else if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A))
+        posX += -hspeed;
+
+    // Jumping
     if ((IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) && CheckCollisionRecs(playercol, floor))
     {
         vspeed = -V_SPEED;

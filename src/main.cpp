@@ -15,35 +15,28 @@ int main()
 
     InitWindow(screenWidth, screenHeight, "3...2...1...You Lost!");
     SetTargetFPS(60);
+
     Rectangle floor = {0, 480, 800, 150};
     Player Player(50, 440, 40, 40, BLUE, floor);
     Enemy1 Gooma(500, 440, 40, 40, RED, floor);
     GameTimer timer;
     Item Item1(250, 440, 20, 20, YELLOW, floor);
-    timer.framesCounter = 0;
-    timer.StartTimer(3.9);
+
+    timer.StartTimer(10.9);
     while (!WindowShouldClose())
     {
         // Update
-        timer.framesCounter++;
         timer.RunTimer();
-        timer.RunTimer2();
         Player.Movement();
-
+        Gooma.Movement(200, 1.5);
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE);
         DrawRectangleRec(floor, GREEN); // Ground
         Player.Draw();
-        Gooma.Draw();
 
-        if (!Item1.Collected(Player.playercol))
-            Item1.Draw();
-        else if (Item1.Collected(Player.playercol) && !Item1.timeAdded)
-        {
-            timer.timerDuration += 5;
-            Item1.timeAdded = true;
-        }
+        Item1.CheckDraw(Player.playercol, &timer.timerDuration);
+        Gooma.CheckDraw(Player.playercol);
 
         if (timer.RunTimer())
             DrawText("You Lost!", 160, 220, 100, RED);

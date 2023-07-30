@@ -4,13 +4,13 @@
 class Entity
 {
 public:
-    Entity(int x, int y, int z, int a, Color b, Rectangle ground);
+    Entity(float x, float y, float z, float a, Color b, Rectangle ground);
     void Draw();
 protected:
-    int posX;
-    int posY;
-    int width;
-    int height;
+    float posX;
+    float posY;
+    float width;
+    float height;
     Rectangle player;
     Color color;
     Rectangle floor;

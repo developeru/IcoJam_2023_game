@@ -10,6 +10,7 @@ public:
     using Entity::Entity;
     bool Collected(Rectangle player);
     bool timeAdded;
+    void CheckDraw(Rectangle player, float* timerDuration);
 private:
     Rectangle item;
     bool hasCollided;

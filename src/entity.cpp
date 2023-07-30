@@ -1,6 +1,6 @@
 #include "entity.h"
 
-Entity::Entity(int x, int y, int z, int a, Color b, Rectangle ground) {
+Entity::Entity(float x, float y, float z, float a, Color b, Rectangle ground) {
 
     posX = x;
     posY = y;

@@ -7,3 +7,13 @@ bool Item::Collected(Rectangle player)
     return hasCollided; 
 }
 
+void Item::CheckDraw(Rectangle player, float* timerDuration) 
+{
+    if (!Collected(player))
+        Draw();
+    else if (Collected(player) && !timeAdded)
+    {
+        *timerDuration += 5;
+        timeAdded = true;
+    }
+}
