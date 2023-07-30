@@ -12,7 +12,6 @@ int main()
 
     const int screenWidth = 800;
     const int screenHeight = 600;
-    
 
     InitWindow(screenWidth, screenHeight, "3...2...1...You Lost!");
     SetTargetFPS(60);
@@ -21,13 +20,14 @@ int main()
     Enemy1 Gooma(500, 440, 40, 40, RED, floor);
     GameTimer timer;
     Item Item1(250, 440, 20, 20, YELLOW, floor);
-
+    timer.framesCounter = 0;
     timer.StartTimer(3.9);
     while (!WindowShouldClose())
     {
         // Update
-        
+        timer.framesCounter++;
         timer.RunTimer();
+        timer.RunTimer2();
         Player.Movement();
 
         // Draw
