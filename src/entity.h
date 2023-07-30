@@ -4,7 +4,7 @@
 class Entity
 {
 public:
-    Entity(int x, int y, int z, int a, Color b, Rectangle rec1, Rectangle rec2);
+    Entity(int x, int y, int z, int a, Color b, Rectangle ground);
     void Draw();
 protected:
     int posX;

@@ -5,24 +5,31 @@
 #define H_SPEED 2.0f
 #define V_SPEED 12.0f
 
-void Player::Movement(int h_speed, int v_speed)
+void Player::Movement()
 {
     player = {(float)posX, (float)posY, (float)width, (float)height};
     playercol = {(float)posX, (float)posY + 2, (float)width, (float)height};
+    hspeed = H_SPEED;
 
-    if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
-        posX += H_SPEED;
-    else if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A))
-        posX -= H_SPEED;
-    if (IsKeyDown(KEY_W) && CheckCollisionRecs(playercol, floor))
+    if (IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_RIGHT_SHIFT)) //Running
     {
-        speed += -V_SPEED;
-        posY += speed;
+        hspeed = H_SPEED * 2;
+    } else hspeed = H_SPEED;
+
+    //Bi-directional controls
+    if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) posX += hspeed; 
+    else if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) posX += -hspeed;
+    
+    //Jumping
+    if ((IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) && CheckCollisionRecs(playercol, floor))
+    {
+        vspeed = -V_SPEED;
+        posY += vspeed;
     }
 
     if (!CheckCollisionRecs(playercol, floor))
     {
-        speed += G;
-        posY += speed;
+        vspeed += G;
+        posY += vspeed;
     }
 }

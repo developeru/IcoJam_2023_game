@@ -4,8 +4,7 @@
 class Player : public Entity {
 public:
     using Entity::Entity;
-    bool checkCollision(Rectangle rec1, Rectangle rec2);
-    void Movement(int h_speed, int v_speed);
+    void Movement();
     Rectangle player;
     Rectangle playercol;
 private:
@@ -14,5 +13,6 @@ private:
     int JumpTimer;
     bool onFloor;
     bool Collision;
-    float speed;
+    float hspeed;
+    float vspeed;
 };
