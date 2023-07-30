@@ -7,7 +7,7 @@ public:
     void Movement();
     Rectangle player;
     Rectangle playercol;
-private:
+protected:
     bool canJump;
     bool Jump;
     int JumpTimer;
