@@ -16,13 +16,13 @@ int main()
     {
         // Update
 
-        Player.Movement(2);
+        Player.Movement(2, 2);
 
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawRectangleRec(floor, GREEN);
-        Player.Draw(); // Ground
+        DrawRectangleRec(floor, GREEN); // Ground
+        Player.Draw(); 
         EndDrawing();
     }
 
