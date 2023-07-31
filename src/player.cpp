@@ -5,7 +5,7 @@
 #define H_SPEED 2.0f
 #define V_SPEED 12.0f
 
-void Player::Movement()
+void Player::Movement(Rectangle floor)
 {
     player = {(float)posX, (float)posY, (float)width, (float)height};
     playercol = {(float)posX, (float)posY + 2, (float)width, (float)height};

@@ -4,7 +4,7 @@
 class Player : public Entity {
 public:
     using Entity::Entity;
-    void Movement();
+    void Movement(Rectangle floor);
     Rectangle player;
     Rectangle playercol;
 protected:

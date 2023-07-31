@@ -1,0 +1,47 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "untitled.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "Ground.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "untitled.tmx": {
+            "scale": 1,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 430,
+                "y": 233
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/HP/Desktop/c++ projects/IcoJam 2023/Tilemap",
+    "map.height": 38,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 50,
+    "openFiles": [
+        "untitled.tmx",
+        "Ground.tsx"
+    ],
+    "project": "tilemap.tiled-project",
+    "recentFiles": [
+        "Ground.tsx",
+        "untitled.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

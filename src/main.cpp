@@ -3,6 +3,7 @@
 
 #include "player.h"
 #include "groundEnemy.h"
+#include "shootingEnemy.h"
 #include "item.h"
 
 #include "timer1.h"
@@ -17,19 +18,20 @@ int main()
     SetTargetFPS(60);
 
     Rectangle floor = {0, 480, 800, 150};
-    Player Player(50, 440, 40, 40, BLUE, floor);
-    NEnemy Gooma(500, 440, 40, 40, RED, floor);
-    NEnemy flyingGooma(300, 360, 40, 40, PURPLE, floor);
-    
-    GameTimer timer;
-    Item Item1(250, 440, 20, 20, YELLOW, floor);
+    Player Player(50, 440, 40, 40, BLUE);
+    NEnemy Gooma(500, 440, 40, 40, RED);
+    NEnemy flyingGooma(300, 360, 40, 40, PURPLE);
+    SEnemy killer(400, 440, 40, 40, RED); 
 
+    GameTimer timer;
+    Item Item1(250, 440, 20, 20, YELLOW);
+    
     timer.StartTimer(10.9);
     while (!WindowShouldClose())
     {
         // Update
         timer.RunTimer();
-        Player.Movement();
+        Player.Movement(floor);
         Gooma.Movement(200, 1.5);
         flyingGooma.Movement(200, 2);
         // Draw
@@ -41,6 +43,8 @@ int main()
         Item1.CheckDraw(Player.playercol, &timer.timerDuration);
         Gooma.CheckDraw(Player.playercol);
         flyingGooma.CheckDraw(Player.playercol);
+        killer.CheckDraw(Player.playercol);
+        killer.Shoot(Player.playercol);
 
         if (timer.RunTimer())
             DrawText("You Lost!", 160, 220, 100, RED);

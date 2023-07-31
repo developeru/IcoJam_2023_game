@@ -1,7 +1,8 @@
 #pragma once
 #include "entity.h"
 
-class Enemy3 : public Entity {
+class Bullet : public Entity
+{
+public:
     using Entity::Entity;
-    
 };

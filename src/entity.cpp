@@ -1,13 +1,12 @@
 #include "entity.h"
 
-Entity::Entity(float x, float y, float z, float a, Color b, Rectangle ground) {
+Entity::Entity(float x, float y, float z, float a, Color b) {
 
     posX = x;
     posY = y;
     width = z;
     height = a;
     color = b;
-    floor = ground;
     
 }
 
