@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "player.h"
-#include "enemy1.h"
+#include "groundEnemy.h"
 #include "item.h"
 
 #include "timer1.h"
@@ -18,7 +18,9 @@ int main()
 
     Rectangle floor = {0, 480, 800, 150};
     Player Player(50, 440, 40, 40, BLUE, floor);
-    Enemy1 Gooma(500, 440, 40, 40, RED, floor);
+    NEnemy Gooma(500, 440, 40, 40, RED, floor);
+    NEnemy flyingGooma(300, 360, 40, 40, PURPLE, floor);
+    
     GameTimer timer;
     Item Item1(250, 440, 20, 20, YELLOW, floor);
 
@@ -29,6 +31,7 @@ int main()
         timer.RunTimer();
         Player.Movement();
         Gooma.Movement(200, 1.5);
+        flyingGooma.Movement(200, 2);
         // Draw
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -37,6 +40,7 @@ int main()
 
         Item1.CheckDraw(Player.playercol, &timer.timerDuration);
         Gooma.CheckDraw(Player.playercol);
+        flyingGooma.CheckDraw(Player.playercol);
 
         if (timer.RunTimer())
             DrawText("You Lost!", 160, 220, 100, RED);

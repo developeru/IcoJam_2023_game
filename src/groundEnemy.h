@@ -1,7 +1,7 @@
 #pragma once
 #include "entity.h"
 
-class Enemy1 : public Entity {
+class NEnemy : public Entity {
 public:
     using Entity::Entity;
     void Movement(int range, float m);

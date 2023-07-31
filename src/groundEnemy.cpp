@@ -1,8 +1,8 @@
-#include "enemy1.h"
+#include "groundEnemy.h"
 #include <iostream>
 
 
-void Enemy1::Movement(int range, float m)
+void NEnemy::Movement(int range, float m)
 {
     if (walked > range) {
         moveleft = true;
@@ -19,14 +19,14 @@ void Enemy1::Movement(int range, float m)
     }
 }
 
-bool Enemy1::HasHadCollision(Rectangle player) 
+bool NEnemy::HasHadCollision(Rectangle player) 
 {
     enemy1 = {(float)posX, (float)posY, (float)width, (float)height};
     if (CheckCollisionRecs(player, enemy1)) hasCollided = true;
     return hasCollided; 
 }
 
-void Enemy1::CheckDraw(Rectangle player) 
+void NEnemy::CheckDraw(Rectangle player) 
 {
     if (!HasHadCollision(player))
         Draw();
